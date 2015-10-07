@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Server" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Server" xmlns:intf="http://Server" xmlns:tns1="http://info.model.dcu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Server" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://info.model.dcu"/>
+   <element name="getCurrentVersion">
+    <complexType>
+     <sequence>
+      <element name="mInfo" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCurrentVersionResponse">
+    <complexType>
+     <sequence>
+      <element name="getCurrentVersionReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActiveUser">
+    <complexType>
+     <sequence>
+      <element name="ip" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActiveUserResponse">
+    <complexType>
+     <sequence>
+      <element name="getActiveUserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveSeriSerialChange">
+    <complexType>
+     <sequence>
+      <element name="info" type="impl:changeInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="changeInfo">
+    <sequence>
+     <element name="changeActionTypeCode" nillable="true" type="xsd:string"/>
+     <element name="changeFormTypeCode" nillable="true" type="xsd:string"/>
+     <element name="formDate" nillable="true" type="xsd:string"/>
+     <element name="newValue" nillable="true" type="xsd:string"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="saveSeriSerialChangeResponse">
+    <complexType>
+     <sequence>
+      <element name="saveSeriSerialChangeReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ReturnMessage">
+    <sequence>
+     <element name="code" type="xsd:int"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="traceCode" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <element name="saveImageChange">
+    <complexType>
+     <sequence>
+      <element name="info" type="impl:changeImageInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="changeImageInfo">
+    <sequence>
+     <element name="image" nillable="true" type="xsd:base64Binary"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="saveImageChangeResponse">
+    <complexType>
+     <sequence>
+      <element name="saveImageChangeReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="shenasnameConfirm">
+    <complexType>
+     <sequence>
+      <element name="shenasnameInfo" type="impl:shenasnameInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="shenasnameInfo">
+    <sequence>
+     <element name="docIssueDate" nillable="true" type="xsd:string"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="shenasnameSeri" nillable="true" type="xsd:string"/>
+     <element name="shenasnameSrno" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="shenasnameConfirmResponse">
+    <complexType>
+     <sequence>
+      <element name="shenasnameConfirmReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPersonMarriages">
+    <complexType>
+     <sequence>
+      <element name="personNin" type="xsd:long"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPersonMarriagesResponse">
+    <complexType>
+     <sequence>
+      <element name="getPersonMarriagesReturn" type="impl:marriagesInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="marriageInfo">
+    <sequence>
+     <element name="codeActiveFlag" nillable="true" type="xsd:string"/>
+     <element name="dbCommitDate" nillable="true" type="xsd:string"/>
+     <element name="expiryDate" nillable="true" type="xsd:string"/>
+     <element name="foHusbandPersonalityNo" nillable="true" type="xsd:string"/>
+     <element name="foWifePersonalityNo" nillable="true" type="xsd:string"/>
+     <element name="foreignStatusCode" nillable="true" type="xsd:string"/>
+     <element name="grantDate" nillable="true" type="xsd:string"/>
+     <element name="husbandNin" type="xsd:long"/>
+     <element name="inactiveMarriageReasonCode" nillable="true" type="xsd:string"/>
+     <element name="mamoorId" nillable="true" type="xsd:string"/>
+     <element name="marriageConfirmAutCode" nillable="true" type="xsd:string"/>
+     <element name="marriageDate" nillable="true" type="xsd:string"/>
+     <element name="marriageId" type="xsd:long"/>
+     <element name="marriageRegstRefCode" nillable="true" type="xsd:string"/>
+     <element name="marriageTypeCode" nillable="true" type="xsd:string"/>
+     <element name="officeCode" type="xsd:short"/>
+     <element name="regstAu" nillable="true" type="xsd:string"/>
+     <element name="regstDate" nillable="true" type="xsd:string"/>
+     <element name="regstGeoSerial" nillable="true" type="xsd:string"/>
+     <element name="regstNo" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+     <element name="wifeNin" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfmarriageInfo">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:marriageInfo"/>
+    </sequence>
+   </complexType>
+   <complexType name="marriagesInfo">
+    <sequence>
+     <element name="marriages" nillable="true" type="impl:ArrayOfmarriageInfo"/>
+     <element name="returnMessage" nillable="true" type="impl:ReturnMessage"/>
+    </sequence>
+   </complexType>
+   <element name="getParentsMarriages">
+    <complexType>
+     <sequence>
+      <element name="husbandNin" type="xsd:long"/>
+      <element name="wifeNin" type="xsd:long"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParentsMarriagesResponse">
+    <complexType>
+     <sequence>
+      <element name="getParentsMarriagesReturn" type="impl:marriagesInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPersonDivorces">
+    <complexType>
+     <sequence>
+      <element name="personNin" type="xsd:long"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPersonDivorcesResponse">
+    <complexType>
+     <sequence>
+      <element name="getPersonDivorcesReturn" type="impl:divorcesInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="divorceInfo">
+    <sequence>
+     <element name="codeActiveFlag" nillable="true" type="xsd:string"/>
+     <element name="dbCommitDate" nillable="true" type="xsd:string"/>
+     <element name="divorceConfirmAutCode" nillable="true" type="xsd:string"/>
+     <element name="divorceDate" nillable="true" type="xsd:string"/>
+     <element name="divorceId" type="xsd:long"/>
+     <element name="divorceRegstRefCode" nillable="true" type="xsd:string"/>
+     <element name="divorceTypeCode" nillable="true" type="xsd:string"/>
+     <element name="foHusbandPersonalityNo" nillable="true" type="xsd:string"/>
+     <element name="foWifePersonalityNo" nillable="true" type="xsd:string"/>
+     <element name="foreignStatusCode" nillable="true" type="xsd:string"/>
+     <element name="graceDate" nillable="true" type="xsd:string"/>
+     <element name="husbandNin" type="xsd:long"/>
+     <element name="inactiveDivorceReasonCode" nillable="true" type="xsd:string"/>
+     <element name="mamoorId" nillable="true" type="xsd:string"/>
+     <element name="marriageDate" nillable="true" type="xsd:string"/>
+     <element name="officeCode" type="xsd:short"/>
+     <element name="regstAu" nillable="true" type="xsd:string"/>
+     <element name="regstDate" nillable="true" type="xsd:string"/>
+     <element name="regstGeoSerial" nillable="true" type="xsd:string"/>
+     <element name="regstNo" nillable="true" type="xsd:string"/>
+     <element name="reversionDate" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+     <element name="wifeNin" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfdivorceInfo">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:divorceInfo"/>
+    </sequence>
+   </complexType>
+   <complexType name="divorcesInfo">
+    <sequence>
+     <element name="divorces" nillable="true" type="impl:ArrayOfdivorceInfo"/>
+     <element name="returnMessage" nillable="true" type="impl:ReturnMessage"/>
+    </sequence>
+   </complexType>
+   <element name="getParentsDivorces">
+    <complexType>
+     <sequence>
+      <element name="husbandNin" type="xsd:long"/>
+      <element name="wifeNin" type="xsd:long"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParentsDivorcesResponse">
+    <complexType>
+     <sequence>
+      <element name="getParentsDivorcesReturn" type="impl:divorcesInfo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="finalConfirmedShenasname">
+    <complexType>
+     <sequence>
+      <element name="shenasnameInfo" type="impl:shenasnameInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="finalConfirmedShenasnameResponse">
+    <complexType>
+     <sequence>
+      <element name="finalConfirmedShenasnameReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signinUser">
+    <complexType>
+     <sequence>
+      <element name="info" type="impl:signinInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="signinInfo">
+    <sequence>
+     <element name="ip" nillable="true" type="xsd:string"/>
+     <element name="request_Date" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="signinUserResponse">
+    <complexType>
+     <sequence>
+      <element name="signinUserReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signoutUser">
+    <complexType>
+     <sequence>
+      <element name="userId" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signoutUserResponse">
+    <complexType>
+     <sequence>
+      <element name="signoutUserReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveBirth">
+    <complexType>
+     <sequence>
+      <element name="birthInfo" type="impl:birthInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="birthInfo">
+    <sequence>
+     <element name="addressGeoSerial" nillable="true" type="xsd:string"/>
+     <element name="announcer1" nillable="true" type="tns1:AnnouncerInfo"/>
+     <element name="announcer2" nillable="true" type="tns1:AnnouncerInfo"/>
+     <element name="announcerRelationCode" type="xsd:short"/>
+     <element name="birthGeoSerial" nillable="true" type="xsd:string"/>
+     <element name="birthRegstSourceCode" type="xsd:short"/>
+     <element name="dateOfBirthSun" nillable="true" type="xsd:string"/>
+     <element name="fatherAddress" nillable="true" type="xsd:string"/>
+     <element name="fatherDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="fatherFname" nillable="true" type="xsd:string"/>
+     <element name="fatherHozehCode" type="xsd:short"/>
+     <element name="fatherHozehKind" nillable="true" type="xsd:string"/>
+     <element name="fatherName" nillable="true" type="xsd:string"/>
+     <element name="fatherNin" type="xsd:long"/>
+     <element name="fatherOfficeCode" type="xsd:short"/>
+     <element name="fatherShenasNo" type="xsd:int"/>
+     <element name="fatherShenasSeri" nillable="true" type="xsd:string"/>
+     <element name="fatherShenasSrno" type="xsd:int"/>
+     <element name="fatherZipCode" type="xsd:long"/>
+     <element name="foreginCityName" nillable="true" type="xsd:string"/>
+     <element name="foreginStateName" nillable="true" type="xsd:string"/>
+     <element name="hozehCode" nillable="true" type="xsd:string"/>
+     <element name="hozehKind" nillable="true" type="xsd:string"/>
+     <element name="mamoorId" nillable="true" type="xsd:string"/>
+     <element name="moludSeqCode" nillable="true" type="xsd:string"/>
+     <element name="motherAddress" nillable="true" type="xsd:string"/>
+     <element name="motherDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="motherFname" nillable="true" type="xsd:string"/>
+     <element name="motherHozehCode" type="xsd:short"/>
+     <element name="motherHozehKind" nillable="true" type="xsd:string"/>
+     <element name="motherName" nillable="true" type="xsd:string"/>
+     <element name="motherNin" type="xsd:long"/>
+     <element name="motherOfficeCode" type="xsd:short"/>
+     <element name="motherShenasNo" type="xsd:int"/>
+     <element name="motherShenasSeri" nillable="true" type="xsd:string"/>
+     <element name="motherShenasSrno" type="xsd:int"/>
+     <element name="motherZipCode" type="xsd:long"/>
+     <element name="officeCode" nillable="true" type="xsd:string"/>
+     <element name="ordinaryDehgardeshi" nillable="true" type="xsd:string"/>
+     <element name="parentDateOfMarriage" nillable="true" type="xsd:string"/>
+     <element name="parentMarrRegstNo" nillable="true" type="xsd:string"/>
+     <element name="parentRegstOfficeGeo" nillable="true" type="xsd:string"/>
+     <element name="parentRegstOfficeNo" nillable="true" type="xsd:string"/>
+     <element name="personAddress" nillable="true" type="xsd:string"/>
+     <element name="personFname" nillable="true" type="xsd:string"/>
+     <element name="personName" nillable="true" type="xsd:string"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="personZipCode" type="xsd:long"/>
+     <element name="religionKind" nillable="true" type="xsd:string"/>
+     <element name="remarks" nillable="true" type="xsd:string"/>
+     <element name="sanadIssueOffice" nillable="true" type="xsd:string"/>
+     <element name="sanadPrepDate" nillable="true" type="xsd:string"/>
+     <element name="sanadPrepGeoSerial" type="xsd:int"/>
+     <element name="sanadSeri" nillable="true" type="xsd:string"/>
+     <element name="sanadSrno" type="xsd:int"/>
+     <element name="sexCode" nillable="true" type="xsd:string"/>
+     <element name="shenasnameSeri" nillable="true" type="xsd:string"/>
+     <element name="shenasnameSrno" nillable="true" type="xsd:string"/>
+     <element name="singleTwinTripleCode" nillable="true" type="xsd:string"/>
+     <element name="timeOfBirth" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+     <element name="witness1" nillable="true" type="tns1:WitnessInfo"/>
+     <element name="witness2" nillable="true" type="tns1:WitnessInfo"/>
+    </sequence>
+   </complexType>
+   <element name="saveBirthResponse">
+    <complexType>
+     <sequence>
+      <element name="saveBirthReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sanadConfirm">
+    <complexType>
+     <sequence>
+      <element name="sanadInfo" type="impl:sanadInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="sanadInfo">
+    <sequence>
+     <element name="docIssueDate" nillable="true" type="xsd:string"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="sanadSeri" nillable="true" type="xsd:string"/>
+     <element name="sanadSerialNo" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="sanadConfirmResponse">
+    <complexType>
+     <sequence>
+      <element name="sanadConfirmReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveDeath">
+    <complexType>
+     <sequence>
+      <element name="deathInfo" type="impl:deathInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="deathInfo">
+    <sequence>
+     <element name="addressGeoSerial" type="xsd:int"/>
+     <element name="ancrAddress" nillable="true" type="xsd:string"/>
+     <element name="ancrAddressGeoSerial" type="xsd:int"/>
+     <element name="ancrDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="ancrFname" nillable="true" type="xsd:string"/>
+     <element name="ancrLetterDate" nillable="true" type="xsd:string"/>
+     <element name="ancrLetterNo" nillable="true" type="xsd:string"/>
+     <element name="ancrName" nillable="true" type="xsd:string"/>
+     <element name="ancrNin" type="xsd:long"/>
+     <element name="ancrOfficeCode" type="xsd:short"/>
+     <element name="ancrPosition" nillable="true" type="xsd:string"/>
+     <element name="ancrReferenceName" nillable="true" type="xsd:string"/>
+     <element name="ancrShenasIssuePlace" nillable="true" type="xsd:string"/>
+     <element name="ancrShenasNo" type="xsd:int"/>
+     <element name="ancrShenasSeri" nillable="true" type="xsd:string"/>
+     <element name="ancrShenasSrno" type="xsd:int"/>
+     <element name="ancrZipCode" type="xsd:long"/>
+     <element name="dateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="dateOfDeath" nillable="true" type="xsd:string"/>
+     <element name="deathCategoryCode" nillable="true" type="xsd:string"/>
+     <element name="deathConfirmAutCode" type="xsd:short"/>
+     <element name="deathDocumentDate" nillable="true" type="xsd:string"/>
+     <element name="deathDocumentNo" nillable="true" type="xsd:string"/>
+     <element name="deathGeoSerial" type="xsd:int"/>
+     <element name="deathPlaceAddress" nillable="true" type="xsd:string"/>
+     <element name="deathReasonCode" type="xsd:short"/>
+     <element name="deathRecordStage" nillable="true" type="xsd:string"/>
+     <element name="deathRegstDate" nillable="true" type="xsd:string"/>
+     <element name="deathRegstNo" type="xsd:long"/>
+     <element name="deathSanadPrepAuth" nillable="true" type="xsd:string"/>
+     <element name="deathSanadSeri" nillable="true" type="xsd:string"/>
+     <element name="deathSanadSrno" type="xsd:int"/>
+     <element name="deathWitnessInfo1" nillable="true" type="tns1:DeathWitnessInfo"/>
+     <element name="deathWitnessInfo2" nillable="true" type="tns1:DeathWitnessInfo"/>
+     <element name="fatherAddress" nillable="true" type="xsd:string"/>
+     <element name="fatherDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="fatherFname" nillable="true" type="xsd:string"/>
+     <element name="fatherHozeh" nillable="true" type="xsd:string"/>
+     <element name="fatherName" nillable="true" type="xsd:string"/>
+     <element name="fatherNin" type="xsd:long"/>
+     <element name="fatherOfficeCode" type="xsd:short"/>
+     <element name="fatherShenasIssuePlace" nillable="true" type="xsd:string"/>
+     <element name="fatherShenasNo" type="xsd:int"/>
+     <element name="fatherZipCode" type="xsd:long"/>
+     <element name="foreignCityStateName" nillable="true" type="xsd:string"/>
+     <element name="hozehCode" nillable="true" type="xsd:string"/>
+     <element name="hozehKind" nillable="true" type="xsd:string"/>
+     <element name="mamoorId" nillable="true" type="xsd:string"/>
+     <element name="motherAddress" nillable="true" type="xsd:string"/>
+     <element name="motherDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="motherFname" nillable="true" type="xsd:string"/>
+     <element name="motherHozeh" nillable="true" type="xsd:string"/>
+     <element name="motherName" nillable="true" type="xsd:string"/>
+     <element name="motherNin" type="xsd:long"/>
+     <element name="motherOfficeCode" type="xsd:short"/>
+     <element name="motherShenasIssuePlace" nillable="true" type="xsd:string"/>
+     <element name="motherShenasNo" type="xsd:int"/>
+     <element name="motherZipCode" type="xsd:long"/>
+     <element name="officeCode" type="xsd:short"/>
+     <element name="ordinaryDehgardeshi" nillable="true" type="xsd:string"/>
+     <element name="personAddress" nillable="true" type="xsd:string"/>
+     <element name="personFname" nillable="true" type="xsd:string"/>
+     <element name="personName" nillable="true" type="xsd:string"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="personOccupation" nillable="true" type="xsd:string"/>
+     <element name="personZipCode" type="xsd:long"/>
+     <element name="remarks" nillable="true" type="xsd:string"/>
+     <element name="sanadIssueOffice" nillable="true" type="xsd:string"/>
+     <element name="sanadIssueOfficeCode" type="xsd:short"/>
+     <element name="sexCode" nillable="true" type="xsd:string"/>
+     <element name="shenasSeri" nillable="true" type="xsd:string"/>
+     <element name="shenasSrno" type="xsd:int"/>
+     <element name="shenasnameIssueDate" nillable="true" type="xsd:string"/>
+     <element name="shenasnameNo" type="xsd:int"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="saveDeathResponse">
+    <complexType>
+     <sequence>
+      <element name="saveDeathReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveMarriage">
+    <complexType>
+     <sequence>
+      <element name="husbandInfo" type="impl:wifeInfo"/>
+      <element name="wifeInfo" type="impl:wifeInfo"/>
+      <element name="marriageInfo" type="impl:marriageInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="wifeInfo">
+    <sequence>
+     <element name="addressGeoSerial" nillable="true" type="xsd:string"/>
+     <element name="educationCode" nillable="true" type="xsd:string"/>
+     <element name="jobCode" nillable="true" type="xsd:string"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="religionCode" nillable="true" type="xsd:string"/>
+     <element name="sexCode" nillable="true" type="xsd:string"/>
+     <element name="times" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="saveMarriageResponse">
+    <complexType>
+     <sequence>
+      <element name="saveMarriageReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveDivorce">
+    <complexType>
+     <sequence>
+      <element name="husbandInfo" type="impl:wifeInfo"/>
+      <element name="wifeInfo" type="impl:wifeInfo"/>
+      <element name="divorceInfo" type="impl:divorceInfo"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveDivorceResponse">
+    <complexType>
+     <sequence>
+      <element name="saveDivorceReturn" type="impl:ReturnMessage"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://info.model.dcu" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://Server"/>
+   <complexType name="AnnouncerInfo">
+    <sequence>
+     <element name="addRecSerial" type="xsd:int"/>
+     <element name="ancrAddress" nillable="true" type="xsd:string"/>
+     <element name="ancrAddressGeoSerial" type="xsd:int"/>
+     <element name="ancrDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="ancrFname" nillable="true" type="xsd:string"/>
+     <element name="ancrHozeh" nillable="true" type="xsd:string"/>
+     <element name="ancrHozehCode" type="xsd:short"/>
+     <element name="ancrHozehKind" nillable="true" type="xsd:string"/>
+     <element name="ancrLetterDate" nillable="true" type="xsd:string"/>
+     <element name="ancrLetterNo" nillable="true" type="xsd:string"/>
+     <element name="ancrName" nillable="true" type="xsd:string"/>
+     <element name="ancrNin" type="xsd:long"/>
+     <element name="ancrOfficeCode" type="xsd:short"/>
+     <element name="ancrReferenceName" nillable="true" type="xsd:string"/>
+     <element name="ancrRelationCode" type="xsd:short"/>
+     <element name="ancrShenasIssuePlace" nillable="true" type="xsd:string"/>
+     <element name="ancrShenasNo" type="xsd:int"/>
+     <element name="ancrZipCode" type="xsd:long"/>
+     <element name="personNin" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <complexType name="WitnessInfo">
+    <sequence>
+     <element name="addRecSerial" type="xsd:int"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="radif" type="xsd:int"/>
+     <element name="rowId" type="xsd:int"/>
+     <element name="witnessAddress" nillable="true" type="xsd:string"/>
+     <element name="witnessAddressGeoSerial" type="xsd:int"/>
+     <element name="witnessDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="witnessFname" nillable="true" type="xsd:string"/>
+     <element name="witnessHozeh" nillable="true" type="xsd:string"/>
+     <element name="witnessHozehCode" type="xsd:short"/>
+     <element name="witnessHozehKind" nillable="true" type="xsd:string"/>
+     <element name="witnessName" nillable="true" type="xsd:string"/>
+     <element name="witnessNin" type="xsd:long"/>
+     <element name="witnessOfficeCode" type="xsd:short"/>
+     <element name="witnessShenasIssuePlace" nillable="true" type="xsd:string"/>
+     <element name="witnessShenasNo" type="xsd:int"/>
+     <element name="witnessZipCode" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <complexType name="DeathWitnessInfo">
+    <sequence>
+     <element name="deathRecSerial" type="xsd:int"/>
+     <element name="deathRegstNo" type="xsd:long"/>
+     <element name="officeCode" type="xsd:short"/>
+     <element name="personNin" type="xsd:long"/>
+     <element name="radif" type="xsd:int"/>
+     <element name="rowId" type="xsd:int"/>
+     <element name="witnessAddress" nillable="true" type="xsd:string"/>
+     <element name="witnessAddressGeoSerial" type="xsd:int"/>
+     <element name="witnessDateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="witnessFname" nillable="true" type="xsd:string"/>
+     <element name="witnessHozeh" nillable="true" type="xsd:string"/>
+     <element name="witnessName" nillable="true" type="xsd:string"/>
+     <element name="witnessNin" type="xsd:long"/>
+     <element name="witnessOccupation" nillable="true" type="xsd:string"/>
+     <element name="witnessOfficeCode" type="xsd:short"/>
+     <element name="witnessShenasIssuePlace" nillable="true" type="xsd:string"/>
+     <element name="witnessShenasNo" type="xsd:int"/>
+     <element name="witnessShenasSeri" nillable="true" type="xsd:string"/>
+     <element name="witnessShenasSrno" type="xsd:int"/>
+     <element name="witnessZipCode" type="xsd:long"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+     <wsdl:message name="getCurrentVersionRequest">
+
+          <wsdl:part element="impl:getCurrentVersion" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getCurrentVersionResponse">
+
+          <wsdl:part element="impl:getCurrentVersionResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getActiveUserRequest">
+
+          <wsdl:part element="impl:getActiveUser" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getActiveUserResponse">
+
+          <wsdl:part element="impl:getActiveUserResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveSeriSerialChangeRequest">
+
+          <wsdl:part element="impl:saveSeriSerialChange" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveSeriSerialChangeResponse">
+
+          <wsdl:part element="impl:saveSeriSerialChangeResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveImageChangeRequest">
+
+          <wsdl:part element="impl:saveImageChange" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveImageChangeResponse">
+
+          <wsdl:part element="impl:saveImageChangeResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="shenasnameConfirmRequest">
+
+          <wsdl:part element="impl:shenasnameConfirm" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="shenasnameConfirmResponse">
+
+          <wsdl:part element="impl:shenasnameConfirmResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getPersonMarriagesRequest">
+
+          <wsdl:part element="impl:getPersonMarriages" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getPersonMarriagesResponse">
+
+          <wsdl:part element="impl:getPersonMarriagesResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getParentsMarriagesRequest">
+
+          <wsdl:part element="impl:getParentsMarriages" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getParentsMarriagesResponse">
+
+          <wsdl:part element="impl:getParentsMarriagesResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getPersonDivorcesRequest">
+
+          <wsdl:part element="impl:getPersonDivorces" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getPersonDivorcesResponse">
+
+          <wsdl:part element="impl:getPersonDivorcesResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getParentsDivorcesRequest">
+
+          <wsdl:part element="impl:getParentsDivorces" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="getParentsDivorcesResponse">
+
+          <wsdl:part element="impl:getParentsDivorcesResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="finalConfirmedShenasnameRequest">
+
+          <wsdl:part element="impl:finalConfirmedShenasname" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="finalConfirmedShenasnameResponse">
+
+          <wsdl:part element="impl:finalConfirmedShenasnameResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="signinUserRequest">
+
+          <wsdl:part element="impl:signinUser" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="signinUserResponse">
+
+          <wsdl:part element="impl:signinUserResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="signoutUserRequest">
+
+          <wsdl:part element="impl:signoutUser" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="signoutUserResponse">
+
+          <wsdl:part element="impl:signoutUserResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveBirthRequest">
+
+          <wsdl:part element="impl:saveBirth" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveBirthResponse">
+
+          <wsdl:part element="impl:saveBirthResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="sanadConfirmRequest">
+
+          <wsdl:part element="impl:sanadConfirm" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="sanadConfirmResponse">
+
+          <wsdl:part element="impl:sanadConfirmResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveDeathRequest">
+
+          <wsdl:part element="impl:saveDeath" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveDeathResponse">
+
+          <wsdl:part element="impl:saveDeathResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveMarriageRequest">
+
+          <wsdl:part element="impl:saveMarriage" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveMarriageResponse">
+
+          <wsdl:part element="impl:saveMarriageResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveDivorceRequest">
+
+          <wsdl:part element="impl:saveDivorce" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:message name="saveDivorceResponse">
+
+          <wsdl:part element="impl:saveDivorceResponse" name="parameters"/>
+
+     </wsdl:message>
+
+     <wsdl:portType name="Services">
+
+          <wsdl:operation name="getCurrentVersion">
+
+               <wsdl:input message="impl:getCurrentVersionRequest" name="getCurrentVersionRequest"/>
+
+               <wsdl:output message="impl:getCurrentVersionResponse" name="getCurrentVersionResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getActiveUser">
+
+               <wsdl:input message="impl:getActiveUserRequest" name="getActiveUserRequest"/>
+
+               <wsdl:output message="impl:getActiveUserResponse" name="getActiveUserResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveSeriSerialChange">
+
+               <wsdl:input message="impl:saveSeriSerialChangeRequest" name="saveSeriSerialChangeRequest"/>
+
+               <wsdl:output message="impl:saveSeriSerialChangeResponse" name="saveSeriSerialChangeResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveImageChange">
+
+               <wsdl:input message="impl:saveImageChangeRequest" name="saveImageChangeRequest"/>
+
+               <wsdl:output message="impl:saveImageChangeResponse" name="saveImageChangeResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="shenasnameConfirm">
+
+               <wsdl:input message="impl:shenasnameConfirmRequest" name="shenasnameConfirmRequest"/>
+
+               <wsdl:output message="impl:shenasnameConfirmResponse" name="shenasnameConfirmResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getPersonMarriages">
+
+               <wsdl:input message="impl:getPersonMarriagesRequest" name="getPersonMarriagesRequest"/>
+
+               <wsdl:output message="impl:getPersonMarriagesResponse" name="getPersonMarriagesResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getParentsMarriages">
+
+               <wsdl:input message="impl:getParentsMarriagesRequest" name="getParentsMarriagesRequest"/>
+
+               <wsdl:output message="impl:getParentsMarriagesResponse" name="getParentsMarriagesResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getPersonDivorces">
+
+               <wsdl:input message="impl:getPersonDivorcesRequest" name="getPersonDivorcesRequest"/>
+
+               <wsdl:output message="impl:getPersonDivorcesResponse" name="getPersonDivorcesResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getParentsDivorces">
+
+               <wsdl:input message="impl:getParentsDivorcesRequest" name="getParentsDivorcesRequest"/>
+
+               <wsdl:output message="impl:getParentsDivorcesResponse" name="getParentsDivorcesResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="finalConfirmedShenasname">
+
+               <wsdl:input message="impl:finalConfirmedShenasnameRequest" name="finalConfirmedShenasnameRequest"/>
+
+               <wsdl:output message="impl:finalConfirmedShenasnameResponse" name="finalConfirmedShenasnameResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="signinUser">
+
+               <wsdl:input message="impl:signinUserRequest" name="signinUserRequest"/>
+
+               <wsdl:output message="impl:signinUserResponse" name="signinUserResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="signoutUser">
+
+               <wsdl:input message="impl:signoutUserRequest" name="signoutUserRequest"/>
+
+               <wsdl:output message="impl:signoutUserResponse" name="signoutUserResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveBirth">
+
+               <wsdl:input message="impl:saveBirthRequest" name="saveBirthRequest"/>
+
+               <wsdl:output message="impl:saveBirthResponse" name="saveBirthResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="sanadConfirm">
+
+               <wsdl:input message="impl:sanadConfirmRequest" name="sanadConfirmRequest"/>
+
+               <wsdl:output message="impl:sanadConfirmResponse" name="sanadConfirmResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveDeath">
+
+               <wsdl:input message="impl:saveDeathRequest" name="saveDeathRequest"/>
+
+               <wsdl:output message="impl:saveDeathResponse" name="saveDeathResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveMarriage">
+
+               <wsdl:input message="impl:saveMarriageRequest" name="saveMarriageRequest"/>
+
+               <wsdl:output message="impl:saveMarriageResponse" name="saveMarriageResponse"/>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveDivorce">
+
+               <wsdl:input message="impl:saveDivorceRequest" name="saveDivorceRequest"/>
+
+               <wsdl:output message="impl:saveDivorceResponse" name="saveDivorceResponse"/>
+
+          </wsdl:operation>
+
+     </wsdl:portType>
+
+     <wsdl:binding name="ServicesSoapBinding" type="impl:Services">
+
+          <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+          <wsdl:operation name="getCurrentVersion">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="getCurrentVersionRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="getCurrentVersionResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getActiveUser">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="getActiveUserRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="getActiveUserResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveSeriSerialChange">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="saveSeriSerialChangeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="saveSeriSerialChangeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveImageChange">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="saveImageChangeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="saveImageChangeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="shenasnameConfirm">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="shenasnameConfirmRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="shenasnameConfirmResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getPersonMarriages">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="getPersonMarriagesRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="getPersonMarriagesResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getParentsMarriages">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="getParentsMarriagesRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="getParentsMarriagesResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getPersonDivorces">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="getPersonDivorcesRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="getPersonDivorcesResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="getParentsDivorces">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="getParentsDivorcesRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="getParentsDivorcesResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="finalConfirmedShenasname">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="finalConfirmedShenasnameRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="finalConfirmedShenasnameResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="signinUser">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="signinUserRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="signinUserResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="signoutUser">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="signoutUserRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="signoutUserResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveBirth">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="saveBirthRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="saveBirthResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="sanadConfirm">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="sanadConfirmRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="sanadConfirmResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveDeath">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="saveDeathRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="saveDeathResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveMarriage">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="saveMarriageRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="saveMarriageResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+          <wsdl:operation name="saveDivorce">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <wsdl:input name="saveDivorceRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:input>
+
+               <wsdl:output name="saveDivorceResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </wsdl:output>
+
+          </wsdl:operation>
+
+     </wsdl:binding>
+
+     <wsdl:service name="ServicesService">
+
+          <wsdl:port binding="impl:ServicesSoapBinding" name="Services">
+
+               <wsdlsoap:address location="http://localhost:7001/DcuS/services/Services"/>
+
+          </wsdl:port>
+
+     </wsdl:service>
+
+</wsdl:definitions>
